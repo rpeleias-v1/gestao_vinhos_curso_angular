@@ -7,8 +7,7 @@ import { VinhosService } from './../../services/vinhos.service';
 @Component({
   selector: 'vinhos',
   templateUrl: './vinhos.component.html',
-  styleUrls: ['./vinhos.component.css'],  
-  providers: [VinhosService]
+  styleUrls: ['./vinhos.component.css']
 })
 export class VinhosComponent implements OnInit {
 
@@ -17,7 +16,12 @@ export class VinhosComponent implements OnInit {
   constructor(public vinhosService: VinhosService) { }
 
   ngOnInit() {
-    this.vinhos = this.vinhosService.listar();
+    this.vinhosService.listar()
+      .then((vinhos: Array<Vinho>) => {
+        this.vinhos = vinhos;
+      }).catch((error: any) => {
+        console.log(error);
+      });
   }
 
 }
