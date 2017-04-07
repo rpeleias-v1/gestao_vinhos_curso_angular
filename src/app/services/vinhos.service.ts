@@ -4,22 +4,24 @@ import { Vinho } from './../models/vinho';
 
 import { Http } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
+import {Observable} from 'rxjs/Observable';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class VinhosService {
 
   constructor(private http: Http) { }
 
-  listar(): Promise<Array<Vinho>> {
-    return this.http.get('api/vinhos')
-      .toPromise()
-      .then(response => response.json().data as Array<Vinho>)
+  listar(): Observable<Array<Vinho>> {
+    return this.http.get('api/vinhos')      
+      .map(response => response.json().data as Array<Vinho>)
       .catch(this.tratarErro);
   }
 
-  private tratarErro(erro:any): Promise<any> {
+  private tratarErro(erro:any): Observable<any> {
     console.log(erro);
-    return Promise.reject(erro.message | erro);
+    return Observable.throw(erro.message | erro);
   }
 }
