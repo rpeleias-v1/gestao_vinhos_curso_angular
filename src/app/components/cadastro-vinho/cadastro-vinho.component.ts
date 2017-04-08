@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'cadastro-vinho',
   templateUrl: './cadastro-vinho.component.html',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroVinhoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router){ }
 
   ngOnInit() {
+  }
+
+  voltar(): void {
+    this.router.navigate(['/vinhos']);
   }
 
 }
