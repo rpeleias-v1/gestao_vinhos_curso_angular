@@ -20,7 +20,7 @@ export class CadastroVinhoComponent implements OnInit {
   constructor(private router: Router, private vinhoService: VinhosService){ }
 
   ngOnInit() {
-    this.vinho = new Vinho();
+    this.vinho = new Vinho();    
     this.uvas = ['Merlot', 'Cabernet Sauvignon', 'Carmenere'];
     this.classificacoes = ['Tinto', 'Branco', 'Verde'];
   }
