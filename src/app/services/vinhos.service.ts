@@ -17,6 +17,13 @@ export class VinhosService {
       .then(response => response.json().data as Array<Vinho>)
       .catch(this.tratarErro);
   }
+
+  buscar(id: number): Promise<Vinho> {
+    return this.http.get(`api/vinhos/${id}`, this.header())
+      .toPromise()
+      .then(response => response.json().data as Vinho)
+      .catch(this.tratarErro);
+  }
   
   cadastrar(vinho: Vinho): Promise<Response> {
     return this.http.post('api/vinhos', JSON.stringify(vinho), this.header())
