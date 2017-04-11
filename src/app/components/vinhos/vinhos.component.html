@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let vinho of vinhos">
+    <tr *ngFor="let vinho of vinhos" (click)="selecionar(vinho)">
       <td>{{vinho.id}}</td>
       <td>{{vinho.nome}}</td>
       <td>{{vinho.classificacao}}</td>
@@ -22,3 +22,7 @@
     </tr>
   </tbody>
 </table>
+
+<div *ngIf="vinhoSelecionado" class="float-right">
+  <button (click)="visualizar(vinhoSelecionado)" class="btn btn-primary">Visualizar</button>         
+</div> 
