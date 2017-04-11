@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Vinho } from './../../models/vinho';
 
@@ -12,8 +13,9 @@ import { VinhosService } from './../../services/vinhos.service';
 export class VinhosComponent implements OnInit {
 
   vinhos: Array<Vinho>;
+  vinhoSelecionado: Vinho;
 
-  constructor(public vinhosService: VinhosService) { }
+  constructor(public vinhosService: VinhosService, public router: Router) { }
 
   ngOnInit() {
     this.vinhosService.listar()
@@ -22,6 +24,14 @@ export class VinhosComponent implements OnInit {
       }).catch((error: any) => {
         console.log(error);
       });
+  }
+
+  selecionar(vinho: Vinho) {
+    this.vinhoSelecionado = vinho;
+  }
+
+  visualizar() {
+    this.router.navigate(['/detalhes-vinho', this.vinhoSelecionado.id]);
   }
 
 }
