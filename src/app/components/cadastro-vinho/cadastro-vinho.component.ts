@@ -16,15 +16,18 @@ export class CadastroVinhoComponent implements OnInit {
   vinho: Vinho;
   uvas: Array<string>;
   classificacoes: Array<string>;
+  titulo: string;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private vinhosService: VinhosService){ }
 
   ngOnInit() {
     this.vinho = new Vinho(); 
+    this.titulo = 'Cadastro de vinho';
     this.inicializarCamposSelecao();
     this.activatedRoute.params.forEach((params: Params) => {
       let id = +params['id'];
       if(id) {
+        this.titulo = 'Edição de vinho';
         this.carregarVinho(id);
       }
     });   
