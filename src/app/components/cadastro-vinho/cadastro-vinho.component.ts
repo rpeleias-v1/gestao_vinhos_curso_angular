@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Vinho } from '../../models/vinho';
 
@@ -17,12 +17,29 @@ export class CadastroVinhoComponent implements OnInit {
   uvas: Array<string>;
   classificacoes: Array<string>;
 
-  constructor(private router: Router, private vinhoService: VinhosService){ }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private vinhosService: VinhosService){ }
 
   ngOnInit() {
-    this.vinho = new Vinho();    
+    this.vinho = new Vinho(); 
+    this.inicializarCamposSelecao();
+    this.activatedRoute.params.forEach((params: Params) => {
+      let id = +params['id'];
+      if(id) {
+        this.carregarVinho(id);
+      }
+    });   
+  }
+
+  private inicializarCamposSelecao() {
     this.uvas = ['Merlot', 'Cabernet Sauvignon', 'Carmenere'];
     this.classificacoes = ['Tinto', 'Branco', 'Verde'];
+  }
+
+  private carregarVinho(id: number) {
+    this.vinhosService.buscar(id)
+      .then(vinho => {
+        this.vinho = vinho;
+      }).catch(erro => console.log(erro));
   }
 
   voltar(): void {
@@ -30,7 +47,7 @@ export class CadastroVinhoComponent implements OnInit {
   }
 
   salvar() {
-    this.vinhoService.cadastrar(this.vinho)
+    this.vinhosService.cadastrar(this.vinho)
       .then(response => {
         console.log(JSON.stringify(response));
         alert("Vinho cadastrado com sucesso");
