@@ -22,6 +22,10 @@ const routes: Routes = [
     component: CadastroVinhoComponent
   },
   {
+    path: 'cadastro-vinho/:id',
+    component: CadastroVinhoComponent
+  },
+  {
     path: 'detalhes-vinho/:id',
     component: DetalhesVinhoComponent
   }  

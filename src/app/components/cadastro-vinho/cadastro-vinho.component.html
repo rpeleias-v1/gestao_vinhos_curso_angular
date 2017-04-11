@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Cadastro de vinho</h2>
+  <h2>{{titulo}}</h2>
   <form (ngSubmit)="salvar()">
     <div class="form-group">
       <label for="vinho">Nome</label>
@@ -20,8 +20,8 @@
     <div class="form-group">
       <label for="classificacao">Classificação</label>
       <select name="classificacao" id="classificacao" class="form-control" name="classificacao" [(ngModel)]="vinho.classificacao" required>
-          <option *ngFor="let classificao of classificacoes" [value]= "classificacao">
-          {{classificao}}
+          <option *ngFor="let classificacao of classificacoes" [value]= "classificacao">
+          {{classificacao}}
         </option>
       </select>
     </div>

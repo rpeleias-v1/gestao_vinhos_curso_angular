@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Vinho } from '../../models/vinho';
 
@@ -16,13 +16,30 @@ export class CadastroVinhoComponent implements OnInit {
   vinho: Vinho;
   uvas: Array<string>;
   classificacoes: Array<string>;
+  titulo: string;
 
-  constructor(private router: Router, private vinhoService: VinhosService){ }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private vinhoService: VinhosService){ }
 
   ngOnInit() {
     this.vinho = new Vinho();    
     this.uvas = ['Merlot', 'Cabernet Sauvignon', 'Carmenere'];
     this.classificacoes = ['Tinto', 'Branco', 'Verde'];
+    this.titulo = 'Cadastro de Vinho';
+
+    this.activatedRoute.params.forEach((params: Params) => {
+      let id = +params['id'];
+      if(id) {
+        this.titulo = 'Edição de vinhos';
+        this.carregarVinho(id);
+      }
+    });
+  }
+
+  private carregarVinho(id: number) {
+    this.vinhoService.buscar(id)
+      .then(vinho => {
+        this.vinho = vinho;
+      }).catch(erro => console.log(erro));
   }
 
   voltar(): void {
