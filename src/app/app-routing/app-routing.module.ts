@@ -5,6 +5,7 @@ import {Routes, RouterModule} from '@angular/router';
 
 import { VinhosComponent } from '../components/vinhos/vinhos.component';
 import { CadastroVinhoComponent } from '../components/cadastro-vinho/cadastro-vinho.component';
+import { DetalhesVinhoComponent} from '../components/detalhes-vinho/detalhes-vinho.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,11 @@ const routes: Routes = [
   {
     path: 'cadastro-vinho',
     component: CadastroVinhoComponent
-  }
+  },
+  {
+    path: 'detalhes-vinho/:id',
+    component: DetalhesVinhoComponent
+  }  
 ]
 
 @NgModule({

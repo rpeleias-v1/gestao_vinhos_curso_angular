@@ -25,6 +25,13 @@ export class VinhosService {
       .catch(this.tratarErro);
   }
 
+  buscar(id: number): Promise<Vinho> {
+    return this.http.get(`api/vinhos/${id}`)
+      .toPromise()
+      .then(response => response.json().data as Vinho)
+      .catch(this.tratarErro);
+  }
+
   private tratarErro(erro:any): Promise<any> {
     console.log(erro);
     return Promise.reject(erro.message | erro);
