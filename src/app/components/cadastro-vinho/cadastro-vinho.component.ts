@@ -47,6 +47,14 @@ export class CadastroVinhoComponent implements OnInit {
   }
 
   salvar() {
+    if(this.vinho.id) {
+      this.atualizar();
+    } else {
+      this.cadastrarNovo();
+    }
+  }
+
+  private cadastrarNovo() {
     this.vinhoService.cadastrar(this.vinho)
       .then(response => {
         console.log(JSON.stringify(response));
@@ -58,4 +66,15 @@ export class CadastroVinhoComponent implements OnInit {
       })
   }
 
+  private atualizar() {
+    this.vinhoService.atualizar(this.vinho.id, this.vinho)
+      .then(response => {
+        console.log(JSON.stringify(response));
+        alert("Vinho atualizado com sucesso");
+        this.router.navigate(['/vinhos']);
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+  }
 }
