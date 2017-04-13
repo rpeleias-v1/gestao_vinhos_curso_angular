@@ -39,6 +39,13 @@ export class VinhosService {
       .catch(this.tratarErro);
   }
 
+  remover(id: number): Promise<Response> {
+    return this.http.delete(`api/vinhos/${id}`, this.header)
+      .toPromise()
+      .then(response => response)
+      .catch(this.tratarErro);
+  }
+
   private tratarErro(erro:any): Promise<any> {
     console.log(erro);
     return Promise.reject(erro.message | erro);
