@@ -18,7 +18,11 @@ export class VinhosComponent implements OnInit {
   constructor(public vinhosService: VinhosService, public router: Router) { }
 
   ngOnInit() {
-    this.vinhosService.listar()
+    this.listar();
+  }
+
+  private listar() {
+     this.vinhosService.listar()
       .then((vinhos: Array<Vinho>) => {
         this.vinhos = vinhos;
       }).catch((error: any) => {
@@ -36,6 +40,15 @@ export class VinhosComponent implements OnInit {
 
   editar() {
     this.router.navigate(['/cadastro-vinho', this.vinhoSelecionado.id]);
+  }
+
+  remover() {
+    this.vinhosService.remover(this.vinhoSelecionado.id)
+      .then(response => {
+        console.log(response.status);
+        alert("Vinho selecionado removido com sucesso");
+        this.listar();
+      }).catch(erro => console.log(erro));
   }
 
 }
