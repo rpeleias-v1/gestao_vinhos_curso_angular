@@ -1,7 +1,5 @@
 export class Notificacao {
 
-    constructor(
-        mensagem?: string, 
-        tipo?: string
-    ) {}
+    mensagem: string;
+    tipo: string;
 }
