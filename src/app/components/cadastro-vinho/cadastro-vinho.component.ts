@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Vinho } from '../../models/vinho';
+import { Notificacao } from '../../models/notificacao';
 
 import { VinhosService } from '../../services/vinhos.service';
+import { NotificacaoService } from '../../services/notificacao.service';
 
 @Component({
   selector: 'cadastro-vinho',
@@ -18,7 +20,7 @@ export class CadastroVinhoComponent implements OnInit {
   classificacoes: Array<string>;
   titulo: string;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private vinhoService: VinhosService){ }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private vinhoService: VinhosService, private notificacaoService: NotificacaoService){ }
 
   ngOnInit() {
     this.vinho = new Vinho();    
@@ -58,11 +60,11 @@ export class CadastroVinhoComponent implements OnInit {
     this.vinhoService.cadastrar(this.vinho)
       .then(response => {
         console.log(JSON.stringify(response));
-        alert("Vinho cadastrado com sucesso");
+        this.notificacaoService.adicionar(new Notificacao('Vinho cadastrado com sucesso', 'success'));        
         this.router.navigate(['/vinhos']);
       })
       .catch(erro => {
-        console.log(erro);
+        this.notificacaoService.adicionar(new Notificacao('Erro ao cadastrar o vinho', 'danger'));        
       })
   }
 
@@ -70,11 +72,11 @@ export class CadastroVinhoComponent implements OnInit {
     this.vinhoService.atualizar(this.vinho.id, this.vinho)
       .then(response => {
         console.log(JSON.stringify(response));
-        alert("Vinho atualizado com sucesso");
+        this.notificacaoService.adicionar(new Notificacao('Vinho atualizado com sucesso', 'success'));                
         this.router.navigate(['/vinhos']);
       })
       .catch(erro => {
-        console.log(erro);
+        this.notificacaoService.adicionar(new Notificacao('Erro ao atualizar o vinho', 'danger'));        
       })
   }
 }
