@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Vinho } from './../../models/vinho';
+import { Vinho } from '../../models/vinho';
+import { Notificacao } from '../../models/notificacao';
 
-import { VinhosService } from './../../services/vinhos.service';
-
+import { VinhosService } from '../../services/vinhos.service';
+import { NotificacaoService } from '../../services/notificacao.service';
 @Component({
   selector: 'vinhos',
   templateUrl: './vinhos.component.html',
@@ -15,7 +16,7 @@ export class VinhosComponent implements OnInit {
   vinhos: Array<Vinho>;
   vinhoSelecionado: Vinho;
 
-  constructor(public vinhosService: VinhosService, public router: Router) { }
+  constructor(public vinhosService: VinhosService, public router: Router, private notificacaoService: NotificacaoService) { }
 
   ngOnInit() {
     this.listar();
@@ -45,8 +46,10 @@ export class VinhosComponent implements OnInit {
   remover() {
     this.vinhosService.remover(this.vinhoSelecionado.id)
       .then(response => {
-        console.log(response.status);
-        alert("Vinho selecionado removido com sucesso");
+        let notificacao: Notificacao = new Notificacao();
+        notificacao.mensagem = 'Vinho removido com sucesso';
+        notificacao.tipo = 'warning';
+        this.notificacaoService.adicionar(notificacao);
         this.listar();
       }).catch(erro => console.log(erro));
   }
