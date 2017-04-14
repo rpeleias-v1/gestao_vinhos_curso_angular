@@ -1,4 +1,4 @@
-<div *ngIf="visivel" class="alert alert-success">
+<div *ngIf="visivel" [ngClass]="['alert', tipoAlerta()]">
   <div *ngIf="notificacao">
     {{notificacao.mensagem}}
   </div>
