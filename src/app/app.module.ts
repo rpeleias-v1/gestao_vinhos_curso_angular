@@ -16,6 +16,7 @@ import { VinhoApi } from './vinho-api';
 import { CadastroVinhoComponent } from './components/cadastro-vinho/cadastro-vinho.component';
 import { DetalhesVinhoComponent } from './components/detalhes-vinho/detalhes-vinho.component';
 import { NotificacaoComponent } from './components/notificacao/notificacao.component';
+import { FiltroTabelaPipe } from './pipes/filtro-tabela.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NotificacaoComponent } from './components/notificacao/notificacao.compo
     VinhosComponent,
     CadastroVinhoComponent,
     DetalhesVinhoComponent,
-    NotificacaoComponent    
+    NotificacaoComponent,
+    FiltroTabelaPipe    
   ],
   imports: [
     BrowserModule,

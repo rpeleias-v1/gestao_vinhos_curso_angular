@@ -1,3 +1,7 @@
+<div class="form-group">
+  <label for="campoBusca">Busca de vinhos</label>
+  <input type="text" id="campoBusca" name="campoBusca" class="form-control" [(ngModel)]="campoBusca">
+</div>
 <table class="table table-stripped table-hover">
   <thead>
     <tr>
@@ -11,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let vinho of vinhos" (click)="selecionar(vinho)">
+    <tr *ngFor="let vinho of vinhos | filtroTabela: campoBusca" (click)="selecionar(vinho)">
       <td>{{vinho.id}}</td>
       <td>{{vinho.nome}}</td>
       <td>{{vinho.classificacao}}</td>
