@@ -14,8 +14,7 @@ import { NotificacaoService } from '../../services/notificacao.service';
 export class VinhosComponent implements OnInit {
 
   vinhos: Array<Vinho>;
-  vinhoSelecionado: Vinho;
-  campoBusca: string;
+  vinhoSelecionado: Vinho;  
 
   constructor(public vinhosService: VinhosService, public router: Router, private notificacaoService: NotificacaoService) { }
 
