@@ -16,32 +16,29 @@ import { NotificacaoService} from '../../services/notificacao.service';
       state('naoVisivel', style({
         opacity: 0
       })),
-      transition('visivel => naoVisivel', animate('.5s'))
+      transition('visivel => naoVisivel', animate('.5s')),
+      transition('naoVisivel => visivel', animate('.5s'))
     ])]  
 })
 export class NotificacaoComponent implements OnInit {
 
   notificacao: Notificacao;
-  visibilidade: string  = 'naoVisivel';
+  status: string  = 'naoVisivel';
 
   constructor(private notificacaoService: NotificacaoService) { }
 
   ngOnInit() {
     this.notificacaoService.obterNotificacoes().subscribe((notificacao: Notificacao) => {
       this.notificacao = notificacao;
-      this.visibilidade = 'visivel';
+      this.status = 'visivel';
       setTimeout(() => {
-        this.visibilidade = 'naoVisivel';
+        this.status = 'naoVisivel';
       }, 3000);
     })
   }
 
   tipoAlerta() {
-    if (this.notificacao &&  (this.notificacao.tipo === 'success' || this.notificacao.tipo === 'warning' || 
-        this.notificacao.tipo === 'info' || this.notificacao.tipo === 'danger')) {
-      return `alert-${this.notificacao.tipo}`;
-    }
-    return 'alert-success';
+    return this.notificacao.tipo;
   }
 
 }
