@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Vinho } from '../../models/vinho';
-import { Notificacao } from '../../models/notificacao';
 
 import { VinhosService } from '../../services/vinhos.service';
 import { NotificacaoService } from '../../services/notificacao.service';
@@ -46,11 +45,8 @@ export class VinhosComponent implements OnInit {
 
   remover() {
     this.vinhosService.remover(this.vinhoSelecionado.id)
-      .then(response => {
-        let notificacao: Notificacao = new Notificacao();
-        notificacao.mensagem = 'Vinho removido com sucesso';
-        notificacao.tipo = 'warning';
-        this.notificacaoService.adicionar(notificacao);
+      .then(response => {        
+        this.notificacaoService.sucesso('Vinho removido com sucesso');
         this.listar();
       }).catch(erro => console.log(erro));
   }

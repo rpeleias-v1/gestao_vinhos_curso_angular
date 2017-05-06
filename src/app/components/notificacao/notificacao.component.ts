@@ -37,11 +37,7 @@ export class NotificacaoComponent implements OnInit {
   }
 
   tipoAlerta() {
-    if (this.notificacao &&  (this.notificacao.tipo === 'success' || this.notificacao.tipo === 'warning' || 
-        this.notificacao.tipo === 'info' || this.notificacao.tipo === 'danger')) {
-      return `alert-${this.notificacao.tipo}`;
-    }
-    return 'alert-success';
+    return this.notificacao.tipo;
   }
 
 }
