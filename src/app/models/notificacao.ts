@@ -12,7 +12,7 @@ export class Notificacao {
     }
 
     get tipo() {
-        return this._mensagem;
+        return this._tipo;
     }
 
     set tipo(tipo: string) {

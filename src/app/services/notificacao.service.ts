@@ -11,7 +11,26 @@ export class NotificacaoService {
 
   constructor() { }
 
-  public adicionar(notificacao: Notificacao) {
+  public sucesso(mensagem:string) {
+    this.adicionar(mensagem, 'alert-success');
+  }
+
+  public informacao(mensagem:string) {
+    this.adicionar(mensagem, 'alert-info');
+  }
+
+  public alerta(mensagem:string) {
+    this.adicionar(mensagem, 'alert-warning');
+  }
+
+  public perigo(mensagem: string) {
+    this.adicionar(mensagem, 'alert-danger');
+  }
+
+  private adicionar(mensagem: string, tipo:string) {
+    let notificacao:Notificacao = new Notificacao();
+    notificacao.mensagem = mensagem;
+    notificacao.tipo = tipo;
     this._notificacoes.next(notificacao);
   }
 
