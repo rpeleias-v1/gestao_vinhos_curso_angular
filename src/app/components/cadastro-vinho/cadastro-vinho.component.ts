@@ -66,9 +66,6 @@ export class CadastroVinhoComponent implements OnInit {
   }
 
   salvar() {
-<<<<<<< HEAD
-    this.vinhosService.cadastrar(this.vinho)
-=======
     if(this.vinho.id) {
       this.atualizar();      
     } else {
@@ -78,7 +75,6 @@ export class CadastroVinhoComponent implements OnInit {
 
   private cadastrarNovo() {
     this.vinhoService.cadastrar(this.vinho)
->>>>>>> atualizacao_vinhos_put
       .then(response => {
         console.log(JSON.stringify(response));
         alert("Vinho cadastrado com sucesso");
