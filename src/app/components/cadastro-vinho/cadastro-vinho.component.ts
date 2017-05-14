@@ -60,11 +60,17 @@ export class CadastroVinhoComponent implements OnInit {
     this.vinhoService.cadastrar(this.vinho)
       .then(response => {
         console.log(JSON.stringify(response));
-        this.notificacaoService.adicionar(new Notificacao('Vinho cadastrado com sucesso', 'success'));        
+        let notificacao: Notificacao = new Notificacao();
+        notificacao.mensagem = 'Vinho cadastrado com sucesso';
+        notificacao.tipo = 'success';
+        this.notificacaoService.adicionar(notificacao);        
         this.router.navigate(['/vinhos']);
       })
       .catch(erro => {
-        this.notificacaoService.adicionar(new Notificacao('Erro ao cadastrar o vinho', 'danger'));        
+        let notificacao: Notificacao = new Notificacao();
+        notificacao.mensagem = 'Erro ao cadastrar o vinho';
+        notificacao.tipo = 'danger';
+        this.notificacaoService.adicionar(notificacao);        
       })
   }
 
@@ -72,11 +78,17 @@ export class CadastroVinhoComponent implements OnInit {
     this.vinhoService.atualizar(this.vinho.id, this.vinho)
       .then(response => {
         console.log(JSON.stringify(response));
-        this.notificacaoService.adicionar(new Notificacao('Vinho atualizado com sucesso', 'success'));                
+        let notificacao: Notificacao = new Notificacao();
+        notificacao.mensagem = 'Vinho atualizado com sucesso';
+        notificacao.tipo = 'success';
+        this.notificacaoService.adicionar(notificacao);         
         this.router.navigate(['/vinhos']);
       })
       .catch(erro => {
-        this.notificacaoService.adicionar(new Notificacao('Erro ao atualizar o vinho', 'danger'));        
+        let notificacao: Notificacao = new Notificacao();
+        notificacao.mensagem = 'Erro ao atualizar o vinho';
+        notificacao.tipo = 'danger';
+        this.notificacaoService.adicionar(notificacao);        
       })
   }
 }
