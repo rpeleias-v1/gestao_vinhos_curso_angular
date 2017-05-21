@@ -18,6 +18,8 @@ import { DetalhesVinhoComponent } from './components/detalhes-vinho/detalhes-vin
 import { NotificacaoComponent } from './components/notificacao/notificacao.component';
 import { FiltroTabelaPipe } from './pipes/filtro-tabela.pipe';
 import { DestacarEstiloDirective } from './diretivas/destacar-estilo.directive';
+import { PageContainerComponent } from './page-container/page-container.component';
+import { DetalhamentoVinhoComponent } from './components/detalhamento-vinho/detalhamento-vinho.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { DestacarEstiloDirective } from './diretivas/destacar-estilo.directive';
     DetalhesVinhoComponent,
     NotificacaoComponent,
     FiltroTabelaPipe,
-    DestacarEstiloDirective    
+    DestacarEstiloDirective,    
+    PageContainerComponent,    
+    DetalhamentoVinhoComponent 
   ],
   imports: [
     BrowserModule,

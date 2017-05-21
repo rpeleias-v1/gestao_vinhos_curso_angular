@@ -1,0 +1,18 @@
+Seção 15 - criação de componente para encapsulamento de páginas de formulário
+
+1 - Criação de componente para encapsular página de cadastro
+2 - Bind de título com @Input()
+3 - Bnd de função com @Output()
+4 - declaração de áreas de template com ng-content
+5 - Slide: detalhamento de interação entre componentes e introdução a ng-content, @Input() e @Output()
+6 - Encapsulamento das páginas de detalhes e cadastro de vinhos
+7 - Componentização dos detalhes de Vinho
+8 - Reuso do componente de detalhe de vinho na tela de Listagem de Vinhos
+
+Seção 16 - AuthGUard
+
+Seção 17 - Deploy do projeto
+
+Bônus 1: ReactiveForm
+Bônus 2: Plugins para o VSCode
+Bônus 3: Testes
