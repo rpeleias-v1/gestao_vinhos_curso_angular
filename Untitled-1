@@ -13,6 +13,12 @@ Seção 16 - AuthGUard
 
 Seção 17 - Deploy do projeto
 
+1 - Geração de projeto com Ng Build
+2 - Ajuste de base href para "." e explicação
+3 - Deploy local com o HTTP-SERVER e o problema de segurança no Chrome
+4 - Deploy no Github Pages
+5 - Deploy no Heroku com HTTP-SERVER
+
 Bônus 1: ReactiveForm
 Bônus 2: Plugins para o VSCode
 Bônus 3: Testes
