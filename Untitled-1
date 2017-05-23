@@ -1,23 +1,33 @@
 Seção 15 - criação de componente para encapsulamento de páginas de formulário
 
-1 - Criação de componente para encapsular página de cadastro
-2 - Bind de título com @Input()
-3 - Bnd de função com @Output()
-4 - declaração de áreas de template com ng-content
+1 - Criação de componente para encapsular página de cadastro e Bind de título com @Input()
+2 - Aplicaçao de page-container nas telas de cadastro e detalhamento de vinhos
+3 - declaração de áreas de template com ng-content
+4 - Criação de botão default para funcionalidade de voltar, e passar implementação com o @Otput e EventEmitter
 5 - Slide: detalhamento de interação entre componentes e introdução a ng-content, @Input() e @Output()
-6 - Encapsulamento das páginas de detalhes e cadastro de vinhos
-7 - Componentização dos detalhes de Vinho
-8 - Reuso do componente de detalhe de vinho na tela de Listagem de Vinhos
+6 - Componentização dos detalhes de Vinho
+7 - Reuso do componente de detalhe de vinho na tela de Listagem de Vinhos
 
-Seção 16 - AuthGUard
+Seção 16 - AuthGuard
+
+1 - Introdução a login com tokens stateless e JWT
+2 - Criação do objeto Modelo para Login
+3 - Criação do Componente e tela para login 
+4 - CriaçÃo de fake-backend api para possibilitar simular o Login
+5 - Criação de autenticacao.service.ts
+6 - proteção de todos os componentes com AuthGuard
+7 - adicionar url para login e logout na barra de navegação do browser
+8 - Introdução e aprofundamento ao AuthGUard 
 
 Seção 17 - Deploy do projeto
 
 1 - Geração de projeto com Ng Build
-2 - Deploy local com o HTTP-SERVER e o problema de segurança no Chrome
-3 - Deploy no Github Pages
-4 - Deploy no Heroku com HTTP-SERVER
+2 - DEtalhamento do conteúdo gerado com o Ng Build
+3 - Deploy local com o HTTP-SERVER e o problema de segurança no Chrome
+4 - Deploy no Github Pages
+5 - Deploy no Heroku com HTTP-SERVER
 
 Bônus 1: ReactiveForm
 Bônus 2: Plugins para o VSCode
-Bônus 3: Testes
+Bônus 3: Testes unitários e integração(a analisar)
+BÔnus 4: DEploy e Integração contínua com o Travis CI (a analisar)

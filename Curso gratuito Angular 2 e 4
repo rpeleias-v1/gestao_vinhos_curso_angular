@@ -1,0 +1,23 @@
+Curso gratuito Angular 2 e 4
+
+1 - Apresentação do Angular
+2 - Instalação e apresentaçao do ambiente de desenvolvimento
+ - Node.js
+ - Typescript
+ - Visual Studio Code
+3 - Criação do primeiro projeto com o Angular CLI
+  - Instalação e configuração do CLI
+  - OVerview do Angular CLI
+  - Geração do projeto Cadastro de Veículos com ng new
+4 - configuração do Bootstrap como layout do projeto
+5 - Criaçao da classe de modelo de Veiculo
+6 -  Criação de API simulada para cadastro e consulta de vinhos
+7 - Componente para listagem de veículos
+8 - Criação de servico para concentrar operações de listagem de vinhos e chamada através de HTTP
+9 - Criação de componente para cadastro de veiculos e serviço POST para cadastro na API simulada
+10 - Cadastro de rotas para as telas de listagem e cadastro de veículos
+11 - Edição de veículos (PUT)
+12 - Remoção de veículos (DELETE)
+13 - Melhorias: Pipes para formatação de data do dia de hoje e letras maiúsculas
+14 - Geraçao do projeto com o ng build e deploy do projeto no Github pages
+15 - Chamada para o curso pago
