@@ -1,4 +1,4 @@
-Seção 15 - criação de componente para encapsulamento de páginas de formulário
+Seção 15 - criação de componente para encapsulamento de páginas de formulário (LANÇADO)
 
 1 - Criação de componente para encapsular página de cadastro e Bind de título com @Input()
 2 - Aplicaçao de page-container nas telas de cadastro e detalhamento de vinhos
@@ -10,14 +10,17 @@ Seção 15 - criação de componente para encapsulamento de páginas de formulá
 
 Seção 16 - AuthGuard
 
-1 - Introdução a login com tokens stateless e JWT
-2 - Criação do objeto Modelo para Login
-3 - Criação do Componente e tela para login 
-4 - CriaçÃo de fake-backend api para possibilitar simular o Login
-5 - Criação de autenticacao.service.ts
-6 - proteção de todos os componentes com AuthGuard
-7 - adicionar url para login e logout na barra de navegação do browser
-8 - Introdução e aprofundamento ao AuthGUard 
+1 - Criação de fake-backend.ts para login e operações com vinho, além do detalhamento de cada método (copy-paste e detalhamento de cada método)
+2 - Substituição da mock API atual pela nova API fake
+3- Criação do objeto Modelo para Login
+4- Criação do Componente e tela para login, e fazer uma implementação fake de login e logout
+5 - Proteção da barra de navegação do sistma gestão-vinhos com uma implementação Fake
+6- Criação de autenticacao.service.ts e introduzir e aprofundar o método de login. Implementar o fluxo do login
+7 - Implementação real do fluxo da operação logout
+8 - criação de AuthGuard proteção de todos os componentes do sistema gestão de vinhos
+9 - Exibição do nome do usuário logado na barra de sistemas
+10 - Introdução e detalhamento de AuthGuard
+11 (Bônus) - Introdução e detalhamento de token stateless e JWT
 
 Seção 17 - Deploy do projeto
 
